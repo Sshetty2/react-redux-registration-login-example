@@ -12,14 +12,15 @@ export const userService = {
     delete: _delete
 };
 
-function login(username, password) {
+function login(userid, password) {
+    console.log(JSON.stringify({ userid, password }))
     const requestOptions = {
-        method: 'GET',
-        // headers: { 'Content-Type': 'application/json' },
-        // body: JSON.stringify({ username, password })
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userid, password })
     };
 
-    return fetch(`${config.apiUrl}/api/user/validate?userid=${username}&password=${password}`, requestOptions)
+    return fetch(`${config.apiUrl}/api/user/validate`, requestOptions)
         .then(handleResponse)
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
