@@ -1,4 +1,5 @@
 import config from 'config';
+// this comes from webpack see the webpack config file
 import { authHeader } from '../_helpers';
 
 export const userService = {
@@ -13,12 +14,12 @@ export const userService = {
 
 function login(username, password) {
     const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
+        method: 'GET',
+        // headers: { 'Content-Type': 'application/json' },
+        // body: JSON.stringify({ username, password })
     };
 
-    return fetch(`${config.apiUrl}/users/authenticate`, requestOptions)
+    return fetch(`${config.apiUrl}/api/user/validate?userid=${username}&password=${password}`, requestOptions)
         .then(handleResponse)
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
