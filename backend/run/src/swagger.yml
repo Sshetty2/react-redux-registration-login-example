@@ -86,14 +86,6 @@ paths:
           description: "Successfully validated pw"
           schema:
             type: "string"
-            # items:
-            #   properties:
-            #     fname:
-            #       type: "string"
-            #     lname:
-            #       type: "string"
-            #     timestamp:
-            #       type: "string"
   /createquery:
     post:
       operationId: "model.create_new_user_query"
