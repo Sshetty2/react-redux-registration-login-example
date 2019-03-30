@@ -38,8 +38,10 @@ def validate_pw(useridobj):
 def create_new_user(useridobj):
     userid = useridobj['userid']
     password = useridobj['password']
-    user_type = useridobj['user_type']
-    
+    try:
+        user_type = useridobj['user_type'] 
+    except:
+        user_type = 'admin'    
     try:
         user_object = Account(username=userid)
     except:
