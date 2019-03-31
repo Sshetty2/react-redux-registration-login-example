@@ -1,2 +1,1 @@
-
-import model
+ion docs to set CORS headers
