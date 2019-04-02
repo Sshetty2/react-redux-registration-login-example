@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { store } from './_helpers';
 import { App } from './App';
 
-// setup fake backend
+// // setup fake backend
 // import { configureFakeBackend } from './_helpers';
 // configureFakeBackend();
 

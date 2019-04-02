@@ -12,7 +12,7 @@ class LoginPage extends React.Component {
         this.props.dispatch(userActions.logout());
 
         this.state = {
-            username: '',
+            userid: '',
             password: '',
             submitted: false
         };
@@ -30,25 +30,25 @@ class LoginPage extends React.Component {
         e.preventDefault();
 
         this.setState({ submitted: true });
-        const { username, password } = this.state;
+        const { userid, password } = this.state;
         const { dispatch } = this.props;
-        if (username && password) {
-            dispatch(userActions.login(username, password));
+        if (userid && password) {
+            dispatch(userActions.login(userid, password));
         }
     }
 
     render() {
         const { loggingIn } = this.props;
-        const { username, password, submitted } = this.state;
+        const { userid, password, submitted } = this.state;
         return (
             <div className="col-md-6 col-md-offset-3">
                 <h2>Login</h2>
                 <form name="form" onSubmit={this.handleSubmit}>
-                    <div className={'form-group' + (submitted && !username ? ' has-error' : '')}>
-                        <label htmlFor="username">Username</label>
-                        <input type="text" className="form-control" name="username" value={username} onChange={this.handleChange} />
-                        {submitted && !username &&
-                            <div className="help-block">Username is required</div>
+                    <div className={'form-group' + (submitted && !userid ? ' has-error' : '')}>
+                        <label htmlFor="userid">userid</label>
+                        <input type="text" className="form-control" name="userid" value={userid} onChange={this.handleChange} />
+                        {submitted && !userid &&
+                            <div className="help-block">Userid is required</div>
                         }
                     </div>
                     <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
