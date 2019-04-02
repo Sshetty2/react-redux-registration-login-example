@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Formik } from 'formik';
+import { Form } from "./form";
 
 import { userActions } from '../_actions';
 
@@ -44,13 +46,24 @@ class RegisterPage extends React.Component {
         }
     }
 
+    // const { registering  } = this.props;
+    // const { user, submitted } = this.state;
+
     render() {
-        const { registering  } = this.props;
-        const { user, submitted } = this.state;
         return (
             <div className="col-md-6 col-md-offset-3">
                 <h2>Register</h2>
-                <form name="form" onSubmit={this.handleSubmit}>
+                <div>
+                    <Formik
+                        render = {props => <Form {...props} />}
+                    />
+                </div>
+
+
+
+
+                
+                {/* <form name="form" onSubmit={this.handleSubmit}>
                     <div className={'form-group' + (submitted && !user.firstName ? ' has-error' : '')}>
                         <label htmlFor="firstName">First Name</label>
                         <input type="text" className="form-control" name="firstName" value={user.firstName} onChange={this.handleChange} />
@@ -86,7 +99,7 @@ class RegisterPage extends React.Component {
                         }
                         <Link to="/login" className="btn btn-link">Cancel</Link>
                     </div>
-                </form>
+                </form> */}
             </div>
         );
     }
