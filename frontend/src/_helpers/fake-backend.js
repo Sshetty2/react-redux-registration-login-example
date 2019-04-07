@@ -1,4 +1,11 @@
 // array in local storage for registered users
+
+// the fake backend is cleverly created interface for mocking out a backend service. It draws heavily upon the localstorage object in HTML5 and will simulate behavior depending on hits to different endpoints.
+
+
+// When implementing a custom API, this script can be completely ignored and as per the documentation, the main Index.JSX in the src folder should be altered to comment out configure backend AND the URL endpointsfomr _actions>user.actions need to be reconfigured as well as the API url config as per your backend specs 
+
+
 let users = JSON.parse(localStorage.getItem('users')) || [];
     
 export function configureFakeBackend() {
